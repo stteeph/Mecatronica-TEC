@@ -1,5 +1,3 @@
-// script.js - Malla completa con todos los bloques del 0 al 10
-
 const materias = {
   "Bloque 0": [
     { id: "MA0101", nombre: "Matemáticas General" },
@@ -89,7 +87,7 @@ const materias = {
   "Bloque 10": [
     { id: "MT9003", nombre: "Proyecto final de graduación", reqs: ["AE4208", "EL5408", "EL5409", "MT9001", "MT9002"] },
     { id: "MT9004", nombre: "Electiva II", reqs: ["MT8004"] },
-  ]
+  ],
 };
 
 const aprobadas = new Set();
@@ -101,7 +99,7 @@ function puedeActivarse(materia) {
 }
 
 function renderMalla() {
-  const contenedor = document.getElementById("malla");
+  const contenedor = document.getElementById("grid-container");
   contenedor.innerHTML = "";
   for (const [bloque, lista] of Object.entries(materias)) {
     const div = document.createElement("div");
@@ -113,7 +111,12 @@ function renderMalla() {
       const span = document.createElement("span");
       span.textContent = m.nombre;
       span.className = "materia";
-      if (aprobadas.has(m.id)) span.classList.add("aprobado");
+      if (aprobadas.has(m.id)) {
+        span.classList.add("aprobada");
+        span.innerHTML += " ✔️";
+      } else if (puedeActivarse(m)) {
+        span.innerHTML += " ✅";
+      }
       span.onclick = () => {
         if (aprobadas.has(m.id)) {
           aprobadas.delete(m.id);
@@ -124,11 +127,28 @@ function renderMalla() {
           return;
         }
         renderMalla();
+        actualizarContador();
       };
       div.appendChild(span);
     });
     contenedor.appendChild(div);
   }
+  actualizarContador();
 }
+
+const contador = document.getElementById("contador");
+const reiniciarBtn = document.getElementById("reiniciarBtn");
+
+function actualizarContador() {
+  const total = Object.values(materias).flat().length;
+  const aprob = aprobadas.size;
+  contador.textContent = `Materias aprobadas: ${aprob} de ${total}`;
+}
+
+reiniciarBtn.addEventListener("click", () => {
+  aprobadas.clear();
+  renderMalla();
+  actualizarContador();
+});
 
 renderMalla();
