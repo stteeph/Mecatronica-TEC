@@ -2,20 +2,27 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Malla Interactiva - Ingeniería Mecatrónica</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plan de Estudios Interactivo de Mecatrónica</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>🛠️ Malla Curricular Interactiva - Ingeniería Mecatrónica</h1>
-    <p>Marca las materias aprobadas para desbloquear las siguientes según requisitos</p>
+    <h1>📚 Plan de Estudios Interactivo - Ingeniería en Mecatrónica</h1>
+    <p>Marca las materias aprobadas para desbloquear las siguientes según requisitos.</p>
   </header>
 
-  <main id="malla"></main>
+  <main>
+    <div id="grid-container" class="grid"></div>
 
-  <footer>
-    <p>© 2025 | Malla Interactiva diseñada para la carrera de Ingeniería en Mecatrónica (Plan 2200)</p>
+    <div id="contador" style="margin: 1rem; font-weight: bold;"></div>
+    <button id="reiniciarBtn" style="margin: 1rem; padding: 0.5rem 1rem; cursor: pointer;">
+      🔄 Reiniciar Plan
+    </button>
+  </main>
+
+  <footer style="text-align: center; margin-top: 3rem; font-size: 0.9rem; color: #666;">
+    © 2025 | Plan interactivo basado en el plan 2200 de Ingeniería en Mecatrónica
   </footer>
 
   <script src="script.js"></script>
