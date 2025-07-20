@@ -1,63 +1,58 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: #f4f8fb;
+  background: #f0f4f8;
+  color: #333;
   margin: 0;
-  padding: 20px;
+  padding: 1rem;
 }
 
 h1 {
   text-align: center;
-  color: #003366;
-  margin-bottom: 40px;
+  margin-bottom: 1rem;
+  color: #204051;
 }
 
 .grid {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  gap: 20px;
-  padding-bottom: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
 }
 
 .bloque {
-  background-color: #e3f2fd;
-  border: 2px solid #90caf9;
+  background: #ffffff;
+  border-left: 6px solid #00796b;
   border-radius: 12px;
-  padding: 15px;
-  min-width: 250px;
-  flex-shrink: 0;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
 }
 
-.bloque:nth-child(odd) {
-  background-color: #fce4ec;
-  border-color: #f48fb1;
+.bloque:hover {
+  transform: translateY(-5px);
 }
 
 .bloque h2 {
-  font-size: 1.2em;
-  color: #0d47a1;
-  text-align: center;
-  margin-bottom: 10px;
+  margin-top: 0;
+  color: #00796b;
+  font-size: 1.2rem;
 }
 
 .materia {
-  display: block;
-  background: white;
-  padding: 10px;
-  margin: 6px 0;
-  border-radius: 10px;
-  border: 1.5px solid #ccc;
+  margin: 0.3rem 0;
   cursor: pointer;
-  transition: 0.3s;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: 0.2s;
+  display: block;
 }
 
 .materia:hover {
-  background-color: #e1f5fe;
+  background-color: #e0f2f1;
 }
 
-.aprobado {
+.materia.aprobada {
   text-decoration: line-through;
-  background-color: #c8e6c9 !important;
-  border-color: #388e3c;
+  background-color: #c8e6c9;
+  color: #4e944f;
 }
