@@ -56,3 +56,16 @@ h1 {
   background-color: #c8e6c9;
   color: #4e944f;
 }
+.icono-aprobado {
+  color: #4CAF50;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-left: 6px;
+}
+
+.icono-desbloqueado {
+  color: #2196F3;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-left: 6px;
+}
